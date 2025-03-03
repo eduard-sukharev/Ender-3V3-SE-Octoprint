@@ -15,8 +15,6 @@ jobs:
       - name: PlatformIO Run
         uses: karniv00l/platformio-run-action@v1
         with:
-          environments: "STM32F103RET6_creality"
-          targets: "run"
           silent: true
           verbose: true
           disable-auto-clean: false
