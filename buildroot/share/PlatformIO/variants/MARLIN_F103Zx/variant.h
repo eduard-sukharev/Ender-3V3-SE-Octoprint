@@ -177,8 +177,8 @@ extern "C" {
 
 // Timer Definitions (optional)
 // Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
-#define TIMER_TONE              TIM6
-#define TIMER_SERVO             TIM7
+#define TIMER_TONE              TIM6  // TIMER_TONE must be defined in this file
+#define TIMER_SERVO             TIM7  // TIMER_SERVO must be defined in this file
 
 // UART Definitions
 // Define here Serial instance number to map on Serial generic name
@@ -198,13 +198,20 @@ extern "C" {
 #define PIN_SERIAL3_TX          PB10
 
 /* Extra HAL modules */
-#define HAL_DAC_MODULE_ENABLED
-#define HAL_SD_MODULE_ENABLED
-#define HAL_SRAM_MODULE_ENABLED
+#ifndef HAL_DAC_MODULE_ENABLED
+  #define HAL_DAC_MODULE_ENABLED
+#endif
+#ifndef HAL_SD_MODULE_ENABLED
+  #define HAL_SD_MODULE_ENABLED
+#endif
+#ifndef HAL_SRAM_MODULE_ENABLED
+  #define HAL_SRAM_MODULE_ENABLED
+#endif
 
 #ifdef __cplusplus
 } // extern "C"
 #endif
+
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
  *----------------------------------------------------------------------------*/

@@ -568,6 +568,8 @@
   #include "stm32f1/pins_MINGDA_MPX_ARM_MINI.h" // STM32F1                                env:STM32F103RE
 #elif MB(CREALITY_V3_GD303)
 #include "stm32f1/pins_CREALITY_V3_GD303.h"   // STM32F1                                env:STM32F103RET6_creality
+#elif MB(CREALITY_V3_F401RET6)
+#include "stm32f4/pins_CREALITY_V3_F401RET6.h"   // STM32F401                             env:STM32F401RE_creality
  
 
 //

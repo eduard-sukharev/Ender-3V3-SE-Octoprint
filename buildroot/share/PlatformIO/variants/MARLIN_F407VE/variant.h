@@ -298,11 +298,11 @@ extern "C" {
 #define PIN_WIRE_SCL            PB6
 
 // Timer Definitions
-//Do not use timer used by PWM pins when possible. See PinMap_PWM in PeripheralPins.c
-#define TIMER_TONE              TIM6
+// Do not use timer used by PWM pins when possible. See PinMap_PWM in PeripheralPins.c
+#define TIMER_TONE              TIM6  // TIMER_TONE must be defined in this file
 
 // Do not use basic timer: OC is required
-#define TIMER_SERVO             TIM2  //TODO: advanced-control timers don't work
+#define TIMER_SERVO             TIM2  // TODO: advanced-control timers don't work
 
 // UART Definitions
 // Define here Serial instance number to map on Serial generic name
@@ -320,12 +320,17 @@ extern "C" {
 #define PIN_SERIAL_TX           PA9
 
 /* Extra HAL modules */
-#define HAL_DAC_MODULE_ENABLED
-#define HAL_SD_MODULE_ENABLED
+#ifndef HAL_DAC_MODULE_ENABLED
+  #define HAL_DAC_MODULE_ENABLED
+#endif
+#ifndef HAL_SD_MODULE_ENABLED
+  #define HAL_SD_MODULE_ENABLED
+#endif
 
 #ifdef __cplusplus
 } // extern "C"
 #endif
+
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
  *----------------------------------------------------------------------------*/
