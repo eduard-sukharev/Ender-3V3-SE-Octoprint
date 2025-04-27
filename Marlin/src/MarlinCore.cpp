@@ -1183,15 +1183,15 @@ void setup()
     OUT_WRITE(SUICIDE_PIN, !SUICIDE_PIN_INVERTING);
   #endif
 
-  #if EITHER(DISABLE_DEBUG, DISABLE_JTAG)
-    // Disable any hardware debug to free up pins for IO
-    #if ENABLED(DISABLE_DEBUG) && defined(JTAGSWD_DISABLE)
-      JTAGSWD_DISABLE();
-    #elif defined(JTAG_DISABLE)
-      JTAG_DISABLE();
-    #else
-      #error "DISABLE_(DEBUG|JTAG) is not supported for the selected MCU/Board."
-    #endif
+  // Disable any hardware debug to free up pins for IO
+  #if ENABLED(DISABLE_DEBUG) && defined(JTAGSWD_DISABLE)
+    delay(10);
+    SETUP_LOG("JTAGSWD_DISABLE");
+    JTAGSWD_DISABLE();
+  #elif ENABLED(DISABLE_JTAG) && defined(JTAG_DISABLE)
+    delay(10);
+    SETUP_LOG("JTAG_DISABLE");
+    JTAG_DISABLE();
   #endif
 
   #if BOTH(HAS_TFT_LVGL_UI, MKS_WIFI_MODULE)

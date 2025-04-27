@@ -28,7 +28,7 @@
 
 #include "stdio.h"
 #include "string.h"
-#include "../../gcode/gcode.h"
+#include "../gcode/gcode.h"
 
 
 #if ENABLED(USE_AUTOZ_TOOL_2)

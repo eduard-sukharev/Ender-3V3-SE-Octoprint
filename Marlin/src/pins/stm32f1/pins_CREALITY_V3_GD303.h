@@ -244,7 +244,7 @@
   // //   #undef SPEAKER
   // // #endif
  
- #ifndef BEEPER_PIN
+  #ifndef BEEPER_PIN
     #define BEEPER_PIN                     PB0//PB13
     #undef SPEAKER
   #endif
